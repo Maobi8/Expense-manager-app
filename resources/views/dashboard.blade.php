@@ -44,7 +44,7 @@
             <!-- /Welcome Wrap -->
 
             <div class="row">
-
+               
                 <!-- Total Companies -->
                 <div class="col-xl-3 col-sm-6 d-flex">
                     <div class="card flex-fill">
@@ -174,6 +174,7 @@
                 </div>
                 <!-- /Companies -->
                 
+                
                 <!-- Revenue -->
                 <div class="col-lg-6 d-flex">
                     <div class="card flex-fill">
@@ -252,4 +253,10 @@
                 <!-- /Top Plans -->
 
             </div>
+
+
+
+
+
 @endsection
+

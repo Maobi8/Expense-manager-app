@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\FilterController;
 use App\Models\Expense;
 use Illuminate\Support\Facades\Route;
 use Carbon\Carbon;
@@ -31,6 +32,15 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/expenses', [ExpenseController::class, 'index'])->name('expenses.index');
+
+// Route to show the form for serching a expense
+
+Route::get('/search', [ExpenseController::class, 'search'])->name('expenses.search');
+
+// Route to show the form for filter of expense
+
+Route::get('/filter', [FilterController::class, 'filter'])->name('expenses.filter');
+
 // Route to show the form for creating a new expense
 Route::get('/expenses/create', [ExpenseController::class, 'create'])->name('expenses.create');
 
@@ -46,6 +56,11 @@ Route::put('/expenses/{id}', [ExpenseController::class, 'update'])->name('expens
 // Route to delete an expense
 Route::delete('/expenses/{id}', [ExpenseController::class, 'destroy'])->name('expenses.destroy');
 
+
+// Route to restore an expense
+Route::get('/restore', [ExpenseController::class, 'restoreuser'])->name('expenses.restoreuser');
+
+Route::post('/expenses/{id}/restore', [ExpenseController::class, 'restore'])->name('expenses.restore');
 
 Route::middleware('auth')->group(function() {
     Route::get('/settings', [UserSettingsController::class, 'index'])->name('settings.index');
